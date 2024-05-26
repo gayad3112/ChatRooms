@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+ <!-- Modal Structure -->
+ <div id="myModal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Enter UserName</h2>
+        <input type="text" id="userInput" placeholder="Enter name...">
+        <button id="submitBtn">Submit</button>
+    </div>
+</div>
+
+
+    <section class="msger">
+        <header class="msger-header">
+          <div class="msger-header-title">
+            <i class="fas fa-comment-alt"></i> chat
+          </div>
+          <div class="msger-header-options">
+            <span><i class="fas fa-cog"></i></span>
+          </div>
+        </header>
+      
+        <main class="msger-chat">
+          <div class="msg left-msg">
+
+      
+            <div class="msg-bubble">
+              <div class="msg-info">
+                <div class="msg-info-name"></div>
+                <div class="msg-info-time"></div>
+              </div>
+      
+              <div class="msg-text">
+               write your messages here...
+              </div>
+            </div>
+          </div>
+      
+          <div class="msg right-msg">
+
+      
+            
+          </div>
+        </main>
+      
+        <form class="msger-inputarea">
+          <input type="text" id="messageContent" class="msger-input" placeholder="Enter your message...">
+          <button type="submit" class="msger-send-btn">Send</button>
+        </form>
+      </section>
+
+      <script src="client.js"></script>
+</body>
+</html>
