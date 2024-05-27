@@ -1,8 +1,10 @@
-const express = require('express');
-const connectDB = require('./db');
-const bodyParser = require('body-parser');
-const path = require('path');
-const Message = require('./models/Message');
+import express from 'express';
+import connectDB from './db.js';
+import bodyParser from 'body-parser';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import Message from './models/Message.js';
+
 const app = express();
 const PORT = 3000;
 
@@ -11,11 +13,13 @@ connectDB();
 
 app.use(express.json());
 app.use(bodyParser.json());
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'public')));
 
 let clients = [];
 
-// SSE endpoint
+// SSE (Server-Sent Events) endpoint
 app.get('/api/messages/stream', (req, res) => {
     res.setHeader('Content-Type', 'text/event-stream');
     res.setHeader('Cache-Control', 'no-cache');

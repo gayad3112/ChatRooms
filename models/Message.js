@@ -1,19 +1,13 @@
+
+
 // models/Message.js
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const MessageSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  content: {
-    type: String,
-    required: true,
-  },
-  timestamp: {
-    type: String, 
-    required: true,
-  },
+    name: { type: String, required: true },
+    content: { type: String, required: true },
+    timestamp: { type: String, required: true }
 });
 
-module.exports = mongoose.model('Message', MessageSchema);
+const Message = mongoose.model('Message', MessageSchema);
+export default Message;

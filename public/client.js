@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.msger-inputarea');
   const msgerChat = document.querySelector('.msger-chat');
   let userName;
-
+  let localUserName = localStorage.getItem("username");
+  userInput.value =  localUserName;
   // Show the modal when the page loads
   modalElement.style.display = 'block';
 
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       userName = userText;
       console.log('User entered:', userName);
-
+      localStorage.setItem("username", userName);
       modalElement.style.display = 'none'; // Close the modal after submission
       initializeChat();
   });
