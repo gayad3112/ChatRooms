@@ -1,75 +1,3 @@
-
- /* Modal container - hidden by default */
- #myModal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* Modal content box */
-.modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 400px;
-    font-family: Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: var(--border);
-    border-radius: 5px;
-}
-
-.modal-input {
-    display: flex;
-    padding: 10px;
-    border-top: var(--border);
-    background: #eee;
-    border: #eee;
-      display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3px;
-  
-}
-.modal-head {
-    color: #666;
-}
-.modal-input * {
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    font-size: 1em;
-
-}
-.modal-btn {
-    margin-left: 10px;
-    background: rgb(0, 196, 65);
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.23s;
-    padding: 8px;
-    border: none;
-    border-radius: 3px;
-    
-  }
-  .modal-btn:hover {
-    background: rgb(0, 180, 50);
-    border-radius: 5px;
-  }
-
-
-
 :root {
   --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   --msger-bg: #fff;
@@ -78,38 +6,151 @@
   --right-msg-bg: #579ffb;
 }
 
-html {
-  box-sizing: border-box;
-}
-
 *,
 *:before,
 *:after {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
-
-
+html, body {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-family: Helvetica, sans-serif;
+}
 
 body {
+  background-image: var(--body-bg);
+  display: flex;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.room-list {
+  list-style-type: none;
+  padding: 0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.room-list li {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.room-list li:hover {
+  background-color: #f1f1f1;
+}
+
+#myModal, #roomModal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-image: var(--body-bg);
-  font-family: Helvetica, sans-serif;
+}
+
+#roomNameHeader {
+  left: 10px;
+  display: contents;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  border: var(--border);
+  width: 80%;
+  max-width: 400px;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.modal-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #eee;
+  border: none;
+  border-radius: 3px;
+  margin: 10px;
+}
+
+.modal-input * {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-head {
+  color: #666;
+  margin: 0;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.modal-btn {
+  margin-left: 10px;
+  background: rgb(0, 196, 65);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.23s;
+  padding: 8px;
+  border: none;
+  border-radius: 3px;
+}
+
+.modal-btn:hover {
+  background: rgb(0, 180, 50);
 }
 
 .msger {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
   justify-content: space-between;
+  align-self: center;
   width: 100%;
   max-width: 867px;
-  margin: 25px 10px;
   height: calc(100% - 50px);
+  margin: 25px 10px;
   border: var(--border);
   border-radius: 5px;
   background: var(--msger-bg);
@@ -129,24 +170,33 @@ body {
   flex: 1;
   overflow-y: auto;
   padding: 10px;
+  background-color: #fff;
+  background-image: url("catCollage.png");
+  background-repeat: repeat;
 }
+
 .msger-chat::-webkit-scrollbar {
   width: 6px;
 }
+
 .msger-chat::-webkit-scrollbar-track {
   background: #ddd;
 }
+
 .msger-chat::-webkit-scrollbar-thumb {
   background: #bdbdbd;
 }
+
 .msg {
   display: flex;
   align-items: flex-end;
   margin-bottom: 10px;
 }
+
 .msg:last-of-type {
   margin: 0;
 }
+
 .msg-img {
   width: 50px;
   height: 50px;
@@ -157,22 +207,26 @@ body {
   background-size: cover;
   border-radius: 50%;
 }
+
 .msg-bubble {
   max-width: 450px;
   padding: 15px;
   border-radius: 15px;
   background: var(--left-msg-bg);
 }
+
 .msg-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
+
 .msg-info-name {
   margin-right: 10px;
   font-weight: bold;
 }
+
 .msg-info-time {
   font-size: 0.85em;
 }
@@ -184,11 +238,13 @@ body {
 .right-msg {
   flex-direction: row-reverse;
 }
+
 .right-msg .msg-bubble {
   background: var(--right-msg-bg);
   color: #fff;
   border-bottom-right-radius: 0;
 }
+
 .right-msg .msg-img {
   margin: 0 0 0 10px;
 }
@@ -199,16 +255,19 @@ body {
   border-top: var(--border);
   background: #eee;
 }
+
 .msger-inputarea * {
   padding: 10px;
   border: none;
   border-radius: 3px;
   font-size: 1em;
 }
+
 .msger-input {
   flex: 1;
   background: #ddd;
 }
+
 .msger-send-btn {
   margin-left: 10px;
   background: rgb(0, 196, 65);
@@ -217,12 +276,7 @@ body {
   cursor: pointer;
   transition: background 0.23s;
 }
+
 .msger-send-btn:hover {
   background: rgb(0, 180, 50);
-}
-
-.msger-chat {
-  background-color: #fff;
-  background-image: url("catCollage.png");
-  background-repeat: repeat;
 }

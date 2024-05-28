@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chat</title>
+    <title id="title">Main Room</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
- <!-- Modal Structure -->
+ <!-- Popup username Modal Structure -->
  <div class="modal" id="myModal">
     <div class="modal-content">
         <h4 class="modal-head">Enter User Name</h4>
@@ -17,11 +17,27 @@
     </div>
 </div>
 
+<!--room choice Modal Structure -->
+<div style="display: none; position: fixed;"  class="modal" id="roomModal">
+  <div class="modal-content">
+      <span class="close" id="closeModalBtn">&times;</span>
+      <h4 class="modal-head">Create or Choose a Room</h4>
+      <div class="modal-body">
+          <input class="modal-input" type="text" id="newRoomInput" placeholder="Enter new room name...">
+          <button class="modal-btn" id="createRoomBtn">Create Room</button>
+      </div>
+      <ul class="room-list" id="roomList">
+          <!-- List of rooms will be dynamically added here -->
+      </ul>
+  </div>
+</div>
 
     <section class="msger">
         <header class="msger-header">
           <div class="msger-header-title">
-            <i class="fas fa-comment-alt"></i> chat
+            <i class="fas fa-comment-alt"></i> 
+            <h3 id="roomNameHeader" style="left: 10px;" >Main Room</h3>
+            <button id="openModalBtn" style="right: 10px;" class="modal-btn">Open Room Selection</button>
           </div>
           <div class="msger-header-options">
             <span><i class="fas fa-cog"></i></span>
@@ -29,26 +45,7 @@
         </header>
       
         <main class="msger-chat">
-          <div class="msg left-msg">
-
-      
-            <div class="msg-bubble">
-              <div class="msg-info">
-                <div class="msg-info-name"></div>
-                <div class="msg-info-time"></div>
-              </div>
-      
-              <div class="msg-text">
-               write your messages here...
-              </div>
-            </div>
-          </div>
-      
-          <div class="msg right-msg">
-
-      
-            
-          </div>
+         <!-- Messages will be dynamically added here -->
         </main>
       
         <form class="msger-inputarea">
