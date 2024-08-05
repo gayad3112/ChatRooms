@@ -9,15 +9,6 @@ This is a simple chat application built with Node.js, Express, MongoDB, and vani
 * Persistent message storage using MongoDB
 * Single-page application
 
-## Installation
-### Prerequisites
-
-* [Node.js](https://nodejs.org/en)
-* [MongoDB](https://www.mongodb.com/)
-
-### Steps
-//add steps
-
 ## Usage
 1. When you first load the application, you will be prompted to enter a username. This will be stored in your browser's local storage.
 2. The default room is "Main Room". You can send messages which will be displayed in the chat.
